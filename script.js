@@ -35,4 +35,23 @@ function generatePassword() {
     return '';
   }
 
+  let passwordLength = 0;
+  while (!passwordLength) {
+    // Prompt user for password length
+    passwordLength = window.prompt('Enter the desired length of the password (8-128). ' +
+                                    'Press Cancel to quit.');
+
+    // If prompt is canceled, passwordLength will be null
+    if (passwordLength === null) {
+      return '';
+    }
+
+    // isNaN() returns true if a string contains non-numerical characters
+    if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+      passwordLength = 0;
+    }
+  }
+  
+  console.log("success");
+
 }
