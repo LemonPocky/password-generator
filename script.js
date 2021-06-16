@@ -52,20 +52,41 @@ function generatePassword() {
     }
   }
   
-  // Confirm lowercase letters
-  let lowerConfirm = window.confirm('Include lowercase characters?\n\n' +
-    'Press OK to include. Press Cancel to not include.');
+  let lowerConfirm = false;
+  let upperConfirm = false;
+  let numberConfirm = false;
+  let specialConfirm = false;
+  while (true) {
+    // Confirm lowercase letters
+    lowerConfirm = window.confirm('Include lowercase characters?\n\n' +
+      'Press OK to include. Press Cancel to not include.');
 
-  // Confirm uppercase letters
-  let upperConfirm = window.confirm('Include uppercase characters?\n\n' +
-    'Press OK to include. Press Cancel to not include.');
+    // Confirm uppercase letters
+    upperConfirm = window.confirm('Include uppercase characters?\n\n' +
+      'Press OK to include. Press Cancel to not include.');
 
-  // Confirm numerical characters
-  let numberConfirm = window.confirm('Include numerical characters?\n\n' +
-    'Press OK to include. Press Cancel to not include.');
+    // Confirm numerical characters
+    numberConfirm = window.confirm('Include numerical characters?\n\n' +
+      'Press OK to include. Press Cancel to not include.');
 
-  // Confirm special characters
-  let specialConfirm = window.confirm('Include special characters?\n\n' +
-    'Press OK to include. Press Cancel to not include.');
+    // Confirm special characters
+    specialConfirm = window.confirm('Include special characters?\n\n' +
+      'Press OK to include. Press Cancel to not include.');
 
+    // If none were selected, redo
+    if (!lowerConfirm && !upperConfirm && !numberConfirm && !specialConfirm) {
+      let retry = window.confirm('You must select at least one character group!\n\n' +
+        'Press OK to retry. Press Cancel to quit.');
+      // If Cancel is pressed, quit.
+      if (!retry) {
+        return '';
+      }
+    } else {
+      // At least one was selected, so we can continue
+      break;
+    }
+  }
+
+  console.log('' + lowerConfirm + upperConfirm + numberConfirm + specialConfirm);
+  
 }
