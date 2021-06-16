@@ -20,10 +20,10 @@ generateBtn.addEventListener('click', writePassword);
 // new password.
 function generatePassword() {  
   // Arrays representing all possible characters
-  // Confusing characters such as i, l, o, I, L, O, 0, [space] have been removed
-  const lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'm',
+  // Confusing characters such as l, o, I, O, 0, [space] have been removed
+  const lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm',
     'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  const upperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'M',
+  const upperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
     'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
   const specials = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-',
