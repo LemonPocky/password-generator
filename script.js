@@ -91,25 +91,30 @@ function generatePassword() {
   // Now that we have all our parameters, generate the actual password
   let fullArray = [];
   if (lowerConfirm) {
-    fullArray.concat(lowerLetters);
+    fullArray = fullArray.concat(lowerLetters);
   }
   if (upperConfirm) {
-    fullArray.concat(upperLetters);
+    fullArray = fullArray.concat(upperLetters);
   }
   if (numberConfirm) {
-    fullArray.concat(numbers);
+    fullArray = fullArray.concat(numbers);
   }
   if (specialConfirm) {
-    specialConfirm.concat(specials);
+    fullArray = fullArray.concat(specials);
   }
 
   let toReturn = randomPassword(passwordLength, fullArray);
-  alert('Congratulations! Your password has been generated.');
+  alert('Press OK to generate your password.');
   return toReturn;  
 }
 
 // Helper function that generates a random string of length @length using
 // a random selection of characters from @pool
 function randomPassword(length, pool) {
-
+  let password = '';
+  for (let i = 0; i < length; i++) {
+    let randomIndex = Math.floor(Math.random() * pool.length);
+    password = password + pool[randomIndex];
+  }
+  return password;
 }
