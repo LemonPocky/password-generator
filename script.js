@@ -48,6 +48,7 @@ function generatePassword() {
 
     // isNaN() returns true if a string contains non-numerical characters
     if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+      window.alert('Invalid input. Please enter a value between 8 and 128.');
       passwordLength = 0;
     }
   }
@@ -87,6 +88,28 @@ function generatePassword() {
     }
   }
 
-  console.log('' + lowerConfirm + upperConfirm + numberConfirm + specialConfirm);
-  
+  // Now that we have all our parameters, generate the actual password
+  let fullArray = [];
+  if (lowerConfirm) {
+    fullArray.concat(lowerLetters);
+  }
+  if (upperConfirm) {
+    fullArray.concat(upperLetters);
+  }
+  if (numberConfirm) {
+    fullArray.concat(numbers);
+  }
+  if (specialConfirm) {
+    specialConfirm.concat(specials);
+  }
+
+  let toReturn = randomPassword(passwordLength, fullArray);
+  alert('Congratulations! Your password has been generated.');
+  return toReturn;  
+}
+
+// Helper function that generates a random string of length @length using
+// a random selection of characters from @pool
+function randomPassword(length, pool) {
+
 }
