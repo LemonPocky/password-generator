@@ -39,7 +39,7 @@ function generatePassword() {
   while (!passwordLength) {
     // Prompt user for password length
     passwordLength = window.prompt('Enter the desired length of the password (8-128). ' +
-                                    'Press Cancel to quit.');
+      'Press Cancel to quit.');
 
     // If prompt is canceled, passwordLength will be null
     if (passwordLength === null) {
@@ -52,6 +52,20 @@ function generatePassword() {
     }
   }
   
-  console.log("success");
+  // Confirm lowercase letters
+  let lowerConfirm = window.confirm('Include lowercase characters?\n\n' +
+    'Press OK to include. Press Cancel to not include.');
+
+  // Confirm uppercase letters
+  let upperConfirm = window.confirm('Include uppercase characters?\n\n' +
+    'Press OK to include. Press Cancel to not include.');
+
+  // Confirm numerical characters
+  let numberConfirm = window.confirm('Include numerical characters?\n\n' +
+    'Press OK to include. Press Cancel to not include.');
+
+  // Confirm special characters
+  let specialConfirm = window.confirm('Include special characters?\n\n' +
+    'Press OK to include. Press Cancel to not include.');
 
 }
